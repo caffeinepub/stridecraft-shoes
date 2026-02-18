@@ -1,0 +1,192 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-responsive-shoes-company-website-with-the-following-pages-and-navigation-home-shop-product-listing-product-details-about-and-contact",
+      "featureTitle": "Create a responsive shoes company website with the following pages and navigation: Home, Shop (product listing), Product Details, About, and Contact.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/SiteFooter.tsx",
+        "frontend/src/components/layout/SiteHeader.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/ProductDetailsPage.tsx",
+        "frontend/src/pages/ShopPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-define-and-apply-a-coherent-visual-theme-for-the-entire-website-colors-typography-spacing-components-with-a-modern-premium-footwear-brand-feel-using-warm-neutrals-e-g-cream-sand-charcoal-black-and-a-single-accent-color-e-g-terracotta-avoid-blue-purple-as-primary-brand-colors",
+      "featureTitle": "Define and apply a coherent visual theme for the entire website (colors, typography, spacing, components) with a modern premium footwear brand feel using warm neutrals (e.g., cream/sand), charcoal/black, and a single accent color (e.g., terracotta). Avoid blue/purple as primary brand colors.",
+      "files": [
+        "frontend/src/components/layout/SiteFooter.tsx",
+        "frontend/src/components/layout/SiteHeader.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-shop-page-that-displays-a-grid-of-shoes-with-search-and-filtering-at-minimum-category-and-price-range-and-sorting-at-minimum-price-low-to-high-and-high-to-low",
+      "featureTitle": "Implement a Shop page that displays a grid of shoes with search and filtering (at minimum: category and price range) and sorting (at minimum: price low-to-high and high-to-low).",
+      "files": [
+        "frontend/src/components/shop/ProductGrid.tsx",
+        "frontend/src/components/shop/ShopFilters.tsx",
+        "frontend/src/hooks/queries/useProductsQuery.ts",
+        "frontend/src/pages/ShopPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-product-details-page-that-shows-product-images-name-price-description-available-sizes-and-a-clear-call-to-action-button-e-g-add-to-cart-or-inquire",
+      "featureTitle": "Implement a Product Details page that shows product images, name, price, description, available sizes, and a clear call-to-action button (e.g., “Add to Cart” or “Inquire”).",
+      "files": [
+        "frontend/src/components/product/ProductGallery.tsx",
+        "frontend/src/components/product/SizeSelector.tsx",
+        "frontend/src/hooks/queries/useProductQuery.ts",
+        "frontend/src/pages/ProductDetailsPage.tsx",
+        "frontend/src/pages/ShopPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-contact-page-with-a-form-name-email-message-that-submits-to-the-backend-and-stores-submissions-in-stable-state-show-a-success-and-error-state-in-the-ui",
+      "featureTitle": "Create a Contact page with a form (name, email, message) that submits to the backend and stores submissions in stable state; show a success and error state in the UI.",
+      "files": [
+        "frontend/src/components/contact/ContactForm.tsx",
+        "frontend/src/hooks/mutations/useContactMutation.ts",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-about-page-with-brand-story-sections-e-g-craft-materials-sustainability-and-a-simple-timeline-or-values-list-suitable-for-a-premium-shoe-company",
+      "featureTitle": "Create an About page with brand story sections (e.g., Craft, Materials, Sustainability) and a simple timeline or values list suitable for a premium shoe company.",
+      "files": [
+        "frontend/src/components/about/ValuesTimeline.tsx",
+        "frontend/src/pages/AboutPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-use-react-query-for-frontend-data-fetching-caching-for-the-product-catalog-and-contact-submission-ensure-loading-and-empty-states-are-handled-for-shop-and-product-details",
+      "featureTitle": "Use React Query for frontend data fetching/caching for the product catalog and contact submission; ensure loading and empty states are handled for Shop and Product Details.",
+      "files": [
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/ProductDetailsPage.tsx",
+        "frontend/src/pages/ShopPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-footer-with-key-links-shop-about-contact-basic-company-info-and-social-link-placeholders-no-external-api-integration-required",
+      "featureTitle": "Add a footer with key links (Shop, About, Contact), basic company info, and social link placeholders (no external API integration required).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/SiteFooter.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-logo-hero-and-product-images-do-not-serve-generated-images-from-the-backend",
+      "featureTitle": "Add the required generated images as static assets under frontend/public/assets/generated and use them in the UI (logo, hero, and product images). Do not serve generated images from the backend.",
+      "files": [
+        "frontend/src/components/product/ProductGallery.tsx",
+        "frontend/src/components/shop/ProductGrid.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

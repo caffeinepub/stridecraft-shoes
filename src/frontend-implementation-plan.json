@@ -1,0 +1,338 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "StrideCraft Shoes — Marketing Site + Catalog + Contact (Frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement responsive SPA pages and navigation: Home, Shop, Product Details, About, Contact.",
+      "acceptanceCriteria": [
+        "Top navigation is present on all pages and works without full page reloads.",
+        "Layout is responsive for mobile, tablet, and desktop.",
+        "Home, Shop, Product Details, About, and Contact routes/pages are accessible and render meaningful content."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app router and top-level layout shell (header + main + footer), wiring routes for Home, Shop, Product Details, About, and Contact using client-side navigation (no full reloads)."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteHeader.tsx",
+          "operation": "create",
+          "description": "Create a responsive top navigation header with internal links to Home, Shop, About, Contact and include the brand logo image. Use shadcn-ui components (e.g., Button) where appropriate for consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteFooter.tsx",
+          "operation": "create",
+          "description": "Create a footer that is rendered across all pages (wired in the shared layout), leaving social links as placeholders. Use shadcn-ui components as needed for consistent typography/link styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create Home page content sections (hero, featured collection teaser, value props) and wire hero + logo usage from generated static assets."
+        },
+        {
+          "path": "frontend/src/pages/ShopPage.tsx",
+          "operation": "create",
+          "description": "Create Shop page container with product grid plus search/filter/sort controls, and wire navigation to Product Details when a product card is clicked."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetailsPage.tsx",
+          "operation": "create",
+          "description": "Create Product Details page container that reads productId from the route and renders product info, size selection, and CTA interaction."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Create About page container and wire it to the router/layout."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create Contact page container with the contact form UI and wire it to the router/layout."
+        },
+        {
+          "path": "frontend/package.json",
+          "operation": "modify",
+          "description": "Ensure client-side routing dependencies are present (e.g., react-router-dom) so navigation works without full page reloads; keep changes minimal and aligned with the existing build template."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Define and apply a premium warm-neutral visual theme (cream/sand + charcoal/black + terracotta accent) site-wide and avoid blue/purple as primary colors.",
+      "acceptanceCriteria": [
+        "All pages share consistent typography, color palette, button styles, and spacing scale.",
+        "Primary UI elements (header, sections, cards, buttons, forms) match the selected theme across the site.",
+        "No blue/purple is used as the primary brand palette (unless only present inside product photos)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global theme tokens/styles (Tailwind base + CSS variables) to implement warm neutrals + charcoal + terracotta accent, consistent typography and spacing; ensure no blue/purple as primary palette."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust/extend Tailwind theme configuration as needed to support the brand palette and consistent component styling (using existing CSS variable approach), without introducing blue/purple as primary tokens."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Apply the global theme to header states/typography and ensure responsive spacing and premium styling. Use shadcn-ui components where appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Apply the global theme to footer layout/typography and ensure consistent spacing with the rest of the site. Use shadcn-ui components where appropriate. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build Shop page product grid with search, category + price range filters, and price sorting.",
+      "acceptanceCriteria": [
+        "Shop page shows a product grid with image, name, price, and category.",
+        "Search filters products by name (case-insensitive).",
+        "Category filter and price range filter narrow the product list.",
+        "Sorting changes product ordering appropriately.",
+        "Filtering/sorting works with data returned from the backend."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/api/products.ts",
+          "operation": "create",
+          "description": "Create product catalog data access helpers that use the existing backend actor (via the existing actor hook) to fetch product lists for the Shop experience, returning backend-provided product data for client-side search/filter/sort."
+        },
+        {
+          "path": "frontend/src/hooks/queries/useProductsQuery.ts",
+          "operation": "create",
+          "description": "Create a React Query hook to load the product list for the Shop page with caching and refetch behavior aligned with the app actor lifecycle."
+        },
+        {
+          "path": "frontend/src/components/shop/ProductGrid.tsx",
+          "operation": "create",
+          "description": "Create a responsive product grid component that renders product cards with image, name, price, and category; supports empty state rendering and click-through to Product Details. Use shadcn-ui Card/Button where appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/shop/ShopFilters.tsx",
+          "operation": "create",
+          "description": "Create search input, category select, price range controls, and sort controls; emit normalized filter state to the parent. Use shadcn-ui Input/Select (and other relevant components) as appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ShopPage.tsx",
+          "operation": "modify",
+          "description": "Wire React Query product loading into the Shop page; implement case-insensitive search + category/price filtering and price sorting against backend-returned data; render loading and empty states; ensure product card navigation to Product Details uses client-side routing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build Product Details page with images, details, size selection, and a clear CTA with non-persistent UI feedback.",
+      "acceptanceCriteria": [
+        "Clicking a product from the Shop page navigates to its Product Details page.",
+        "Product Details shows at least one image, name, price, description, and a selectable size list.",
+        "CTA button is present and visibly styled; if cart is not implemented, the CTA triggers a non-persistent UI action (e.g., opens an inquiry modal or shows a confirmation toast)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/queries/useProductQuery.ts",
+          "operation": "create",
+          "description": "Create a React Query hook to fetch a single product by ID from the backend actor and surface loading/error/not-found states."
+        },
+        {
+          "path": "frontend/src/components/product/SizeSelector.tsx",
+          "operation": "create",
+          "description": "Create a size selection UI for available sizes with clear selected state. Use shadcn-ui Button/Toggle-like components if available. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/product/ProductGallery.tsx",
+          "operation": "create",
+          "description": "Create a simple product image gallery/hero image renderer that uses product image paths (static assets) with graceful fallback behavior. Use shadcn-ui components where appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetailsPage.tsx",
+          "operation": "modify",
+          "description": "Wire route param -> React Query product fetch; render loading state, a clear not-found state for invalid IDs, and the product details UI with size selection and a styled CTA that triggers a non-persistent confirmation (e.g., toast/dialog). Use shadcn-ui components as appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ShopPage.tsx",
+          "operation": "modify",
+          "description": "Ensure product cards/rows link to the Product Details route using client-side navigation (no full reloads)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create Contact page form (name, email, message) that submits via React Query mutation and shows success/error UI states.",
+      "acceptanceCriteria": [
+        "Contact form validates required fields before submit.",
+        "On successful submission, the user sees a clear success confirmation and the form resets.",
+        "On failure, the user sees a clear error message.",
+        "Backend stores contact submissions (timestamped) in stable state."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/api/contact.ts",
+          "operation": "create",
+          "description": "Create a contact submission helper that uses the backend actor to submit the form fields and returns the backend-provided submission identifier."
+        },
+        {
+          "path": "frontend/src/hooks/mutations/useContactMutation.ts",
+          "operation": "create",
+          "description": "Create a React Query mutation hook for contact submission with success/error handling hooks for UI feedback."
+        },
+        {
+          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "operation": "create",
+          "description": "Create the Contact form UI with required-field validation, disabled/loading submit state, and inline success/error messages. Use shadcn-ui Form/Input/Textarea/Button components where appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Wire the ContactForm into the page and ensure the page layout matches the global theme and responsive constraints."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create an About page with at least three brand story sections plus a simple timeline or values list.",
+      "acceptanceCriteria": [
+        "About page contains at least 3 distinct content sections and reads as a coherent shoe brand story.",
+        "Content layout is responsive and matches the site’s theme."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Add branded content sections (e.g., Craft, Materials, Sustainability) plus a timeline/values list, ensuring responsive layout and consistent premium theme styling."
+        },
+        {
+          "path": "frontend/src/components/about/ValuesTimeline.tsx",
+          "operation": "create",
+          "description": "Create a simple responsive values list/timeline component and use it from the About page to ensure the content structure is clear and consistent with the theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Use React Query for product catalog fetching/caching and contact submission; implement loading/empty/not-found states.",
+      "acceptanceCriteria": [
+        "Shop page shows a loading state while products load and an empty state when no products match filters.",
+        "Product Details page shows a loading state and a clear not-found state for invalid IDs.",
+        "Data fetching uses React Query (queries/mutations) rather than ad-hoc fetch state."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ShopPage.tsx",
+          "operation": "modify",
+          "description": "Ensure Shop page uses React Query hooks for product loading and renders explicit loading + empty states based on query status and filter results."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetailsPage.tsx",
+          "operation": "modify",
+          "description": "Ensure Product Details uses React Query hook and renders explicit loading + not-found states."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Ensure Contact submission uses React Query mutation (no ad-hoc fetch state) and renders explicit submitting/success/error UI states."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add a theme-matching footer with key links, company info, and social placeholders across the site.",
+      "acceptanceCriteria": [
+        "Footer appears on all pages and matches the theme.",
+        "Footer includes at least 3 internal links and basic company text.",
+        "Social links are present as placeholders (e.g., icons/labels) and do not require external API calls."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Implement footer content: internal links (Shop/About/Contact), basic company info text, and social placeholders; ensure theme alignment and responsive layout. Use shadcn-ui components where appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the SiteFooter into the shared layout so it appears on all routes/pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add required generated images as static assets under frontend/public/assets/generated and reference them in the UI (logo, hero, product images).",
+      "acceptanceCriteria": [
+        "Generated images exist under frontend/public/assets/generated and are referenced by the frontend via static paths.",
+        "Home page uses the hero image and logo.",
+        "Shop/Product Details use the product images from the generated assets."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/stridecraft-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated logo asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/hero-banner.dim_1920x900.png",
+          "operation": "create",
+          "description": "Add the generated hero banner asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/paper-texture.dim_1600x1600.png",
+          "operation": "create",
+          "description": "Add the generated background texture asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/shoe-01.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated product image asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/shoe-02.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated product image asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/shoe-03.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated product image asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/shoe-04.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated product image asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/shoe-05.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated product image asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/shoe-06.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated product image asset at this exact path for static usage in the UI."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Reference these static assets in the Home UI: frontend/public/assets/generated/stridecraft-logo.dim_512x512.png and frontend/public/assets/generated/hero-banner.dim_1920x900.png; optionally use frontend/public/assets/generated/paper-texture.dim_1600x1600.png as a subtle background texture consistent with the theme."
+        },
+        {
+          "path": "frontend/src/components/shop/ProductGrid.tsx",
+          "operation": "modify",
+          "description": "Ensure product cards render product images that correspond to generated assets (frontend/public/assets/generated/shoe-01.dim_1024x1024.png through frontend/public/assets/generated/shoe-06.dim_1024x1024.png), using the product's image path when provided and a sensible fallback when missing."
+        },
+        {
+          "path": "frontend/src/components/product/ProductGallery.tsx",
+          "operation": "modify",
+          "description": "Ensure Product Details renders product images using static generated assets (frontend/public/assets/generated/shoe-01.dim_1024x1024.png through frontend/public/assets/generated/shoe-06.dim_1024x1024.png) as provided by product data and/or as fallback."
+        }
+      ]
+    }
+  ]
+}

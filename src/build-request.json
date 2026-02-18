@@ -1,0 +1,227 @@
+{
+  "kind": "build_request",
+  "title": "Shoes company marketing website with product catalog and contact form",
+  "projectName": "StrideCraft Shoes",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a responsive shoes company website with the following pages and navigation: Home, Shop (product listing), Product Details, About, and Contact.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Top navigation is present on all pages and works without full page reloads.",
+        "Layout is responsive for mobile, tablet, and desktop.",
+        "Home, Shop, Product Details, About, and Contact routes/pages are accessible and render meaningful content."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Define and apply a coherent visual theme for the entire website (colors, typography, spacing, components) with a modern premium footwear brand feel using warm neutrals (e.g., cream/sand), charcoal/black, and a single accent color (e.g., terracotta). Avoid blue/purple as primary brand colors.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages share consistent typography, color palette, button styles, and spacing scale.",
+        "Primary UI elements (header, sections, cards, buttons, forms) match the selected theme across the site.",
+        "No blue/purple is used as the primary brand palette (unless only present inside product photos)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement a Shop page that displays a grid of shoes with search and filtering (at minimum: category and price range) and sorting (at minimum: price low-to-high and high-to-low).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Shop page shows a product grid with image, name, price, and category.",
+        "Search filters products by name (case-insensitive).",
+        "Category filter and price range filter narrow the product list.",
+        "Sorting changes product ordering appropriately.",
+        "Filtering/sorting works with data returned from the backend."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a Product Details page that shows product images, name, price, description, available sizes, and a clear call-to-action button (e.g., “Add to Cart” or “Inquire”).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking a product from the Shop page navigates to its Product Details page.",
+        "Product Details shows at least one image, name, price, description, and a selectable size list.",
+        "CTA button is present and visibly styled; if cart is not implemented, the CTA triggers a non-persistent UI action (e.g., opens an inquiry modal or shows a confirmation toast)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add backend support for a public product catalog: store products in stable state in the single Motoko main actor and expose query methods to list products and fetch a product by ID (including fields needed for Shop filters/sort and Product Details). Seed the catalog with a small set of sample shoe products.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend provides a query to return a list of products with IDs and required metadata (name, price, category, image paths, description, sizes).",
+        "Backend provides a query to fetch a single product by ID.",
+        "At least 6 sample products are available after deployment without requiring manual initialization steps."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create a Contact page with a form (name, email, message) that submits to the backend and stores submissions in stable state; show a success and error state in the UI.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form validates required fields before submit.",
+        "On successful submission, the user sees a clear success confirmation and the form resets.",
+        "On failure, the user sees a clear error message.",
+        "Backend stores contact submissions (timestamped) in stable state."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create an About page with brand story sections (e.g., Craft, Materials, Sustainability) and a simple timeline or values list suitable for a premium shoe company.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "About page contains at least 3 distinct content sections and reads as a coherent shoe brand story.",
+        "Content layout is responsive and matches the site’s theme."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Use React Query for frontend data fetching/caching for the product catalog and contact submission; ensure loading and empty states are handled for Shop and Product Details.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Shop page shows a loading state while products load and an empty state when no products match filters.",
+        "Product Details page shows a loading state and a clear not-found state for invalid IDs.",
+        "Data fetching uses React Query (queries/mutations) rather than ad-hoc fetch state."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add a footer with key links (Shop, About, Contact), basic company info, and social link placeholders (no external API integration required).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Footer appears on all pages and matches the theme.",
+        "Footer includes at least 3 internal links and basic company text.",
+        "Social links are present as placeholders (e.g., icons/labels) and do not require external API calls."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add the required generated images as static assets under frontend/public/assets/generated and use them in the UI (logo, hero, and product images). Do not serve generated images from the backend.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Please create a shoes company website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images exist under frontend/public/assets/generated and are referenced by the frontend via static paths.",
+        "Home page uses the hero image and logo.",
+        "Shop/Product Details use the product images from the generated assets."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor (all logic in backend/main.mo).",
+    "Do not edit files under frontend/src/components/ui (compose them instead).",
+    "Do not edit immutable hook/bootstrap files: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx."
+  ],
+  "nonGoals": [
+    "E-commerce checkout, payments, and order fulfillment.",
+    "Third-party authentication providers (only Internet Identity is supported, but not required for this build).",
+    "External CMS or external database integrations.",
+    "Real-time chat or push notifications."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal premium shoe brand wordmark logo in black on transparent background (stridecraft-logo.dim_512x512.png)",
+      "Wide homepage hero banner photo-illustration of premium sneakers on warm neutral backdrop with soft shadows (hero-banner.dim_1920x900.png)",
+      "Editorial background texture/pattern in warm neutral tones, subtle grain (paper-texture.dim_1600x1600.png)",
+      "Product image: minimalist running shoe, side profile, warm neutral lighting, transparent background (shoe-01.dim_1024x1024.png)",
+      "Product image: minimalist running shoe, angled 3/4 view, warm neutral lighting, transparent background (shoe-02.dim_1024x1024.png)",
+      "Product image: leather casual sneaker, side profile, warm neutral lighting, transparent background (shoe-03.dim_1024x1024.png)",
+      "Product image: leather casual sneaker, angled 3/4 view, warm neutral lighting, transparent background (shoe-04.dim_1024x1024.png)",
+      "Product image: hiking shoe/boot, side profile, warm neutral lighting, transparent background (shoe-05.dim_1024x1024.png)",
+      "Product image: hiking shoe/boot, angled 3/4 view, warm neutral lighting, transparent background (shoe-06.dim_1024x1024.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Use English for user-facing text"
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Create a shoes company website.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal premium shoe brand wordmark logo in black on transparent background (stridecraft-logo.dim_512x512.png)\n- Wide homepage hero banner photo-illustration of premium sneakers on warm neutral backdrop with soft shadows (hero-banner.dim_1920x900.png)\n- Editorial background texture/pattern in warm neutral tones, subtle grain (paper-texture.dim_1600x1600.png)\n- Product image: minimalist running shoe, side profile, warm neutral lighting, transparent background (shoe-01.dim_1024x1024.png)\n- Product image: minimalist running shoe, angled 3/4 view, warm neutral lighting, transparent background (shoe-02.dim_1024x1024.png)\n- Product image: leather casual sneaker, side profile, warm neutral lighting, transparent background (shoe-03.dim_1024x1024.png)\n- Product image: leather casual sneaker, angled 3/4 view, warm neutral lighting, transparent background (shoe-04.dim_1024x1024.png)\n- Product image: hiking shoe/boot, side profile, warm neutral lighting, transparent background (shoe-05.dim_1024x1024.png)\n- Product image: hiking shoe/boot, angled 3/4 view, warm neutral lighting, transparent background (shoe-06.dim_1024x1024.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-shoes-company-website-with-the-following-pages-and-navigation-home-shop-product-listing-product-details-about-and-contact",
+      "title": "Create a responsive shoes company website with the following pages and navigation: Home, Shop (product listing), Product Details, About, and Contact.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-define-and-apply-a-coherent-visual-theme-for-the-entire-website-colors-typography-spacing-components-with-a-modern-premium-footwear-brand-feel-using-warm-neutrals-e-g-cream-sand-charcoal-black-and-a-single-accent-color-e-g-terracotta-avoid-blue-purple-as-primary-brand-colors",
+      "title": "Define and apply a coherent visual theme for the entire website (colors, typography, spacing, components) with a modern premium footwear brand feel using warm neutrals (e.g., cream/sand), charcoal/black, and a single accent color (e.g., terracotta). Avoid blue/purple as primary brand colors.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-shop-page-that-displays-a-grid-of-shoes-with-search-and-filtering-at-minimum-category-and-price-range-and-sorting-at-minimum-price-low-to-high-and-high-to-low",
+      "title": "Implement a Shop page that displays a grid of shoes with search and filtering (at minimum: category and price range) and sorting (at minimum: price low-to-high and high-to-low).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-product-details-page-that-shows-product-images-name-price-description-available-sizes-and-a-clear-call-to-action-button-e-g-add-to-cart-or-inquire",
+      "title": "Implement a Product Details page that shows product images, name, price, description, available sizes, and a clear call-to-action button (e.g., “Add to Cart” or “Inquire”).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-page-with-a-form-name-email-message-that-submits-to-the-backend-and-stores-submissions-in-stable-state-show-a-success-and-error-state-in-the-ui",
+      "title": "Create a Contact page with a form (name, email, message) that submits to the backend and stores submissions in stable state; show a success and error state in the UI.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-about-page-with-brand-story-sections-e-g-craft-materials-sustainability-and-a-simple-timeline-or-values-list-suitable-for-a-premium-shoe-company",
+      "title": "Create an About page with brand story sections (e.g., Craft, Materials, Sustainability) and a simple timeline or values list suitable for a premium shoe company.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-react-query-for-frontend-data-fetching-caching-for-the-product-catalog-and-contact-submission-ensure-loading-and-empty-states-are-handled-for-shop-and-product-details",
+      "title": "Use React Query for frontend data fetching/caching for the product catalog and contact submission; ensure loading and empty states are handled for Shop and Product Details.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-footer-with-key-links-shop-about-contact-basic-company-info-and-social-link-placeholders-no-external-api-integration-required",
+      "title": "Add a footer with key links (Shop, About, Contact), basic company info, and social link placeholders (no external API integration required).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-logo-hero-and-product-images-do-not-serve-generated-images-from-the-backend",
+      "title": "Add the required generated images as static assets under frontend/public/assets/generated and use them in the UI (logo, hero, and product images). Do not serve generated images from the backend.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a shoes company website.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add backend support for a public product catalog: store products in stable state in the single Motoko main actor and expose query methods to list products and fetch a product by ID (including fields needed for Shop filters/sort and Product Details). Seed the catalog with a small set of sample shoe products.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "StrideCraft Shoes",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

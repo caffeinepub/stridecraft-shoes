@@ -1,0 +1,21 @@
+{
+  "frontend/src/index.css": "Global styles with OKLCH color system implementing warm cream/sand backgrounds, charcoal text, and terracotta accents for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with custom fonts (Inter, Playfair Display), warm-neutral color tokens, and custom shadows for the premium shoe brand aesthetic.",
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, ThemeProvider wrapper, and routes for Home, Shop, Product Details, About, and Contact pages with shared header/footer layout.",
+  "frontend/src/components/layout/SiteHeader.tsx": "Responsive site header with logo, desktop navigation menu, and mobile hamburger menu using TanStack Router for client-side navigation.",
+  "frontend/src/components/layout/SiteFooter.tsx": "Site footer with brand info, navigation links (Shop, About, Contact), social media placeholders, and Caffeine.ai attribution with UTM tracking.",
+  "frontend/src/pages/HomePage.tsx": "Home page featuring hero section with banner image, value propositions (Quality, Sustainable, Fast Delivery), and featured collection teaser grid.",
+  "frontend/src/pages/ShopPage.tsx": "Shop page with product grid, search/filter/sort controls, loading states, and empty state handling using React Query for data fetching.",
+  "frontend/src/pages/ProductDetailsPage.tsx": "Product details page displaying product gallery, information, size selector, and add-to-cart CTA with toast notification feedback.",
+  "frontend/src/pages/AboutPage.tsx": "About page with brand story sections covering craft, materials, and sustainability, plus values timeline component.",
+  "frontend/src/pages/ContactPage.tsx": "Contact page with contact information cards (email, phone, location) and contact form component.",
+  "frontend/src/components/shop/ProductGrid.tsx": "Responsive product grid component rendering product cards with images, names, prices, categories, and view details buttons.",
+  "frontend/src/components/shop/ShopFilters.tsx": "Shop filters sidebar with search input, category select, price range slider, and sort order dropdown controls.",
+  "frontend/src/components/product/ProductGallery.tsx": "Product image gallery with main image display and thumbnail navigation for multiple product images.",
+  "frontend/src/components/product/SizeSelector.tsx": "Size selection component displaying available sizes as toggleable buttons with visual selected state.",
+  "frontend/src/components/contact/ContactForm.tsx": "Contact form with name, email, and message fields, validation, loading states, and React Query mutation for submission.",
+  "frontend/src/components/about/ValuesTimeline.tsx": "Values display component showing four brand values (Excellence, Passion, Sustainability, Community) with icons and descriptions.",
+  "frontend/src/hooks/queries/useProductsQuery.ts": "React Query hook for fetching all products from the backend with caching and actor lifecycle management.",
+  "frontend/src/hooks/queries/useProductQuery.ts": "React Query hook for fetching a single product by ID with error handling and retry configuration.",
+  "frontend/src/hooks/mutations/useContactMutation.ts": "React Query mutation hook for contact form submission with success/error toast notifications."
+}
